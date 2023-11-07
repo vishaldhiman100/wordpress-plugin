@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap');
+#userform1{width: 100%;max-width: 100%;}
+#userform1 .col-md-6{width: 45%;display: inline-block;margin-right: 30px;margin-bottom:30px;}
+#userform1 .col-md-6 input, #userform1 .col-md-6 select{width: 100%;height:50px;}
+#userform1 .col-md-12{width: 92.5%;margin-bottom: 30px;}
+#userform1 .container {display: block;position: relative;padding-left: 0px;margin-bottom: 12px;cursor: pointer;font-size: 22px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+#userform1 .container input {position: absolute;opacity: 0;cursor: pointer;height: 0;width: 0;}
+#userform1 .checkmark {position: absolute;top: 0;left: 0;height: 25px;width: 25px;background-color: #eee;}
+#userform1 .container:hover input ~ .checkmark {background-color: #ccc;}
+#userform1 .container input:checked ~ .checkmark {background-color: #2196F3;}
+#userform1 .checkmark:after {content: "";position: absolute;display: none;}
+#userform1 .container input:checked ~ .checkmark:after {display: block;}
+#userform1 .container input:checked >.container td {background:#eee;}
+#userform1 .container .checkmark:after {left: 9px;top: 5px;width: 5px;height: 10px;border: solid white;border-width: 0 3px 3px 0;-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+#userform1 .tbl-check label, #userform1 .tbl-check table {width: 100%;border: 0px;padding: 0px 0;margin: 6px 0 0 0;}
+#userform1 .tbl-check .active{background:#eee;}
+#userform1 .tbl-check .checkmark{display:none;}
+#userform1 .tbl-check td {width: 50%;}
+#userform1  #primphoto_error {color: red;}
+#userform1  #title_error {color: red;}
+#add, #remove{transition: background 150ms ease-in-out;background: #0073aa;border: none;border-radius: 5px;box-sizing: border-box;color: #fff;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;font-size: 0.88889em;font-weight: 700;outline: none;padding: 0.76rem 1rem;text-decoration: none;vertical-align: baseline;}
+#userform1  .matchfund_item {width:90%;}
+#userform1  .matchfund {width:90%;}
+.innerprogress {float: left;    width: calc( 2% - 0px ); height: 16px;}
+.listing_fundraising {float: left; border: 3px solid; padding:7px;width: 29%;margin-left: 10px !important }
+.innerthree {float: left;width:33.3%; height: 50px;} 
+.threesection {width:100%; height: 60px;}
+#payment_msg {color: green;}
+.modal_fund {display: none;position: fixed;z-index: 1; padding-top: 100px;left: 0;top: 0;width: 100%; height: 100%; overflow: auto;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);}
+.modal_fund-content {background-color: #fefefe;margin: auto;padding: 20px;border: 1px solid #888;width: 80%;}
+.close_fund {color: #aaaaaa;float: right;font-size: 28px;font-weight: bold;}
+.close_fund:hover,
+.close_fund:focus {color: #000;text-decoration: none;cursor: pointer;}
+.fund-row {max-width: 100% !important;}
+span.text-pre {font-weight: 600;display: inline-block;text-align: center;}
+.date-expire {font-weight: 700;font-size: 30px;}
+.textcenter{text-align:center;}
+.primeimg img {height: auto;max-width: 100%;position: relative;min-height: 200px;max-height: 200px;width: 100%;}
+.arrows .fa{font-size: 42px;color: #fff;}
+.left-arrow.arrows.slick-arrow {position: absolute;top: 40%;z-index: 999;left: 15px;}
+.right-arrow.arrows.slick-arrow {position: absolute;top: 40%;z-index: 999;right: 15px;}
+.fund-single-container{max-width: 75%;margin: 0 auto;}
+.fund-single-container .fund-info span{padding-right:40px;}
+.fund-single-container .adjusted { display: inline-block; margin-left: 10px; }
+.fund-single-container .green { color: green; }
+.fund-row .donate { background: green; color: #fff }
+.fund-single-container .socialshare { margin: 30px 0; }
+.fund-single-container .socialshare a>img, .fund-row .socialshare a>img { max-width: 40px; margin: 8px; }
+.fund-single-row h2:before{ display: none; }
+/******************/
+h1, h2, h3, h4, h5, h6 {color: #000;}
+
+div[class*="fund"]{font-family: 'Karla', sans-serif;color:#303030;font-weight:400;	}
+.fund-row .title-meta h2::before {width: 50px;height: 1px;display: inline-block;content: "";background: #303030;vertical-align: middle;margin-right: 5px;}
+.fund-row .title-meta h2::after {width: 50px;height: 1px;display: inline-block;content: "";background: #303030;vertical-align: middle; margin-left: 5px;}
+.fund-row .title-meta h2 {margin-bottom: 60px;color: #262626;}
+.fund-row .three-col-section {width: 33.33333333%;float: left;padding:15px;}
+.fund-row .three-col-section .three-col-inner {
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    -webkit-box-shadow: 0 0 45px rgba(0,0,0,0.15);
+            box-shadow: 0 0 45px rgba(0,0,0,0.15);
+			height:100%;
+}
+.fund-row .three-col-inner .title-meta {
+    padding: 5px 0;
+    color: #303030;
+    font-size: 14px;
+    border-top: 1px solid #ececec;
+}
+.fund-row .three-col-section .three-col-inner .title-meta:first-of-type {
+    border: none;
+}
+.fund-row .date-expire {
+    font-size: 18px;
+    color: #303030;
+    background: #f5f5f5;
+    padding: 10px;
+    border-bottom: 1px solid #ececec;
+    border-top: 1px solid #ececec;
+    margin: 20px -30px;
+	text-align: center;
+}
+.fund-row .text-meta.bg-clr {
+
+    background: #2B78E4;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    position: relative;
+    padding: 10px;
+    margin: 15px -30px;
+
+}
+.fund-row .progresdiv {
+    height: 15px;
+    margin: 20px 0;
+    background: #ddd;
+}
+.fund-row  .action_buttons .view_detail.button {
+    background: #303030;
+    color: #fff;
+    padding: 9px 10px;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 3px solid #000;
+	display:block;
+}
+
+.fund-row .action_buttons button,
+.fund-single-row button {
+    background: #28a745;
+    color: #fff;
+    padding: 9px 10px;
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    border-left: none;
+    width: 100%;
+    margin-top: 10px;
+    border-right: none;
+    border-top: none;
+    border-bottom: 3px solid #0F8E2C;
+}
+.fund-row .socialshare {
+    margin-top: 20px;
+}
+.fund-row .socialshare a > img{
+    max-width: 30px;
+    margin: 5px;
+}
+.fund-row .title-meta-bottom {
+    color: #28a745;
+    font-size: 16px;
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+.fund-row .action_buttons {
+    margin-top: 20px;
+}
+.fund-row .three-col-section-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+.fund-single-row .featured_info {
+    margin-top: 40px;
+    font-size: 22px;
+    text-transform: capitalize;
+}
+.fund-single-row  .featured_info span {
+    display: block;
+    font-size: 14px;
+    color: #008000;
+}
+.fund-single-container .fund-info span {
+    background: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+}
+.fund-single-container .text-meta.bg-clr {
+    display: block;
+    background:#2B78E4; 
+    max-width: 300px;
+    margin: 0px auto;
+        margin-top: 0px;
+    padding: 10px;
+    margin-top: 10px;
+	color: #fff;
+	font-size: 22px;
+}
+
+.progress_bar_info.three_col_divide {
+    padding: 0;
+    color: #303030;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.progress_bar_info.three_col_divide .donor_info, .progress_bar_info.three_col_divide .criteria, .progress_bar_info.three_col_divide .equality {
+    width: 33.33333333%;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+.progresdiv {
+    background: #f5f5f5;
+	height: 16px;
+}
+.progresdiv::before, .progresdiv::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+.fund-single-container {
+    max-width: 1000px;
+    background: #fff;
+    box-shadow: 0 0 50px rgba(0,0,0,0.25);
+    padding: 50px;
+}
+.fund-single-container  .table-wrapper {
+    background: #f7f7f7;
+    padding: 20px;
+    margin: 0 -15px;
+}
+
+.fund-single-container .project_progress {
+    margin-top: 30px;
+}
+
+
+/*********************************************/
+.single-ctm span {
+    margin-right: 14px;
+}
+#paymentFrm {
+    padding: 2% 10%;
+    text-align: center;
+}
+
+#paymentFrm p label {
+    font-size: 26px;
+    font-weight: 300;
+    padding: 0 20px 0 6px;
+}
+#paymentFrm .ctm label {
+    font-size: 15px;
+    text-align: left;
+    display: inherit;
+    padding: 0 0 4px 0;
+}
+.ctm input, .ctm textarea {
+    border: 1px solid #9f9f9f !important;
+    color: #707070 !important;
+    height: 45px !important;
+}
+#payBtn {
+    width: 30%;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 10px;
+}
+
+.modal_fund-content {
+    width: 53%;
+}
+.col-md6 {
+	width: 50%;
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.col-md6 label, .col-md6 input, .col-md6 select,.col-md12 label,.col-md12 textarea{display:block;width:100%;}
+.col-md12 {
+    width: 100%;
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.submit input {
+    display: inline-block;
+    background-color: #032365 !important;
+    color: #fff !important;
+    border: 0px !important;
+    line-height: 0;
+    border-radius: 0px !important;
+    width: 30%;
+}
+.submit {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-top: 27px;
+}
+#userform1 .matchfund_item {
+    width: 99%;
+}
+#userform1 .matchfund {
+    width: 88%;
+    margin-left: 14px !important;
+}
+/***************************************/
+
+.equality {
+    text-align: right !important;
+}
+.donor_info {
+    text-align: left !important;
+}
+
+.progress_bar_info.three_col_divide .donor_info, .progress_bar_info.three_col_divide .criteria, .progress_bar_info.three_col_divide .equality {
+    border: 0px;
+    text-align: center;
+}
+.criteria {
+    position: relative;
+}
+
+.criteria::before {
+    width: 2px;
+    height: 16px;
+    background-color: #008000;
+    content: " ";
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    bottom: 65px;
+    left: 50%;
+}
+#userform1 input, #userform1 textarea {
+    border: 1px solid #9f9f9f;
+    color: #707070;
+    height: 45px;
+    margin: 10px 0;
+}
+.p-txt p {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.p-txt input {
+    float: left;
+}
+.p-txt select {
+    border: 1px solid #9f9f9f;
+    color: #707070;
+    height: 45px;
+    margin: 10px 0;
+}
+#userform1 label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2f2f2f;
+}
+#myBtn {
+    width: 30%;
+}
+div[class*="fund"]
+{
+	z-index: 99999999;
+}
+.money_goes tr th, .money_goes tr td {
+    padding-left: 20px !important;
+}
+.green-cls {
+    background-color: #cce9cc;
+}
+.mt th {
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+.action_buttons #myBtn {
+    width: 100%;
+}
+.ctm-tm img {
+    width: 16px;
+    margin-right: 10px;
+}
+.ctm-tm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.single-ctm span
+{
+	border: 1px solid #f5f5f5;
+	transition: all 0.5s ease;
+}
+.single-ctm span:hover {
+
+    border: 1px solid #abbdab;
+    background-color: #ddeddd;
+
+}
+.no-padding {
+    margin-bottom: 5px;
+}
+.fund-single-row button:hover, .fund-row .action_buttons button:hover, .fund-row .action_buttons .view_detail.button:hover {
+    background-color: #032263;
+    border-bottom: 3px solid #010d27;
+}
+.error-msg, .payment-errors{background: #d26b6b;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0px;
+	display: block;
+    clear: both;    
+	font-size: 18px;
+}
+.success-msg{background: #09884d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0px;    
+	font-size: 18px;    
+	display: block;
+    clear: both;
+}
+.payment-errors {display:none;}
+/*********************************************/
+
+@media(max-width:1300px){
+	#paymentFrm {
+		padding: 2% 0%;
+	}
+	.modal_fund-content {
+		width: 60%;
+	}
+}
+
+@media(max-width:1199px){
+	.fund-row .three-col-section {
+		width: 50%;
+	}
+	#userform1 .matchfund {
+		width: 85%;
+	}
+}
+
+@media(max-width:991px){
+	.fund-single-row h2 {
+		font-size: 30px;
+	}
+	.fund-single-container {
+		padding: 30px;
+	}
+	.modal_fund-content {
+		width: 70%;
+	}
+	#paymentFrm p label {
+		font-size: 20px;
+	}
+	#paymentFrm .ctm label {
+		font-size: 13px;
+	}	
+	.ctm input, .ctm textarea {
+		height: 40px !important;
+	}	
+	#payBtn {
+		width: 50%;
+	}
+	#paymentFrm p {
+		font-size: 13px;
+	}
+	#userform1 .matchfund {
+		width: 80%;
+	}	
+}
+
+@media(max-width:767px){
+	.fund-row .three-col-section {width: 100%;}
+	.fund-single-row h2 {font-size: 28px;}	
+	h3 {font-size: 22px; }
+	.progress_bar_info.three_col_divide .donor_info, .progress_bar_info.three_col_divide .criteria, .progress_bar_info.three_col_divide .equality {width: 100%;}
+	.fund-single-container .fund-info span {display: block;text-align: left;}
+	.fund-single-container .title-meta {text-align: center;}
+	.criteria {
+		position: relative;
+		border: 2px solid #008000 !important;
+		background-color: #f6fef6;
+	}
+
+	.donor_info {
+		text-align: center !important;
+	}
+	.equality {
+		text-align: center !important;
+	}
+
+	.criteria::before {
+		display: none;
+		}
+		
+	.modal_fund-content {
+		width: 100%;
+		padding: 10px;
+	}
+
+	#paymentFrm {
+		padding: 0;
+	}
+	#paymentFrm p label {
+		font-size: 15px;
+		padding: 0 6px 0px 5px;
+	}
+	.col-md6 {
+		width: 100%;
+	}
+	#payBtn {
+		width: 64%;
+	}
+	#userform1 .tbl-check td {
+		width: 100%;
+		float: left;
+	}
+	#userform1 .matchfund_item {
+		width: 100%;
+	}
+	#userform1 .matchfund {
+		width: 82%;
+		margin-left: 0px !important;
+	}
+	.submit input {
+		width: 90%;
+	}
+	#userform1 label {
+		font-size: 13px;
+	}
+	#myBtn {
+		width: 100%;
+	}
+	.single-ctm.ctm-tm {
+		display: inline-block;
+		width: 100%;
+	}
+}
